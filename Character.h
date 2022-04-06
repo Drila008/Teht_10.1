@@ -12,16 +12,16 @@ public:
 	string name;
 	int hp;
 	int strength;
-	Weapon equippedWpn;
-	Armor equippedArmor;
-	vector<Equipment> inventory;
+	unique_ptr<Weapon> equippedWpn;
+	unique_ptr<Armor> equippedArmor;
+	vector <unique_ptr<Equipment>> inventory;
 
 
 	void PrintEquippedItems();
 	void EquipItem(int index);
 	
 
-	Character(string _name, int _hp, int _str, Weapon _wpn, Armor _armor);
+	Character(string _name, int _hp, int _str, unique_ptr<Weapon> _wpn, unique_ptr<Armor> _armor);
 	~Character()
 	{
 	

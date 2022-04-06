@@ -3,8 +3,8 @@
 
 namespace Helper
 {
-	void PrintInventory(vector<Equipment> inv);
-	void AddArmorToInventory(vector<Equipment>& inv);
-	void AddWeaponToInventory(vector<Equipment>& inv);
-	void RemoveItemFromIndex(vector<Equipment>& inv, int index);
+	void PrintInventory(vector <unique_ptr<Equipment>>& inv);
+	void AddArmorToInventory(vector <unique_ptr<Equipment>>& inv);
+	void AddWeaponToInventory(vector <unique_ptr<Equipment>>& inv);
+	void RemoveItemFromIndex(vector <unique_ptr<Equipment>>& inv, int index);
 }

@@ -13,5 +13,5 @@ public:
 	Type itemType;
 
 	virtual int GetStat() { return 0; };
-	Equipment() {};
+	//Equipment() {};
 };

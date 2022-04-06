@@ -1,6 +1,6 @@
 #include "Helper.h"
 
-void Helper::PrintInventory(vector<Equipment> inv)
+void Helper::PrintInventory(vector <unique_ptr<Equipment>>& inv)
 {
 	int index = 1;
 	float totalWeight = 0;
@@ -8,15 +8,15 @@ void Helper::PrintInventory(vector<Equipment> inv)
 	cout << "Items in inventory: " << endl;
 	for (auto item : inv)
 	{
-		cout << index << " " << item.name << endl;;
+		cout << index << " " << item->name << endl;;
 		index++;
-		totalWeight += item.weight;
+		totalWeight += item->weight;
 	}
 
 	cout << "Total weight of inventory: " << totalWeight << endl << endl;
 }
 
-void Helper::AddArmorToInventory(vector<Equipment>& inv)
+void Helper::AddArmorToInventory(vector <unique_ptr<Equipment>>& inv)
 {
 	string name;
 	int AC;
@@ -43,7 +43,7 @@ void Helper::AddArmorToInventory(vector<Equipment>& inv)
 
 }
 
-void Helper::AddWeaponToInventory(vector<Equipment>& inv)
+void Helper::AddWeaponToInventory(vector <unique_ptr<Equipment>>& inv)
 {
 	string name;
 	int damage;
@@ -62,15 +62,15 @@ void Helper::AddWeaponToInventory(vector<Equipment>& inv)
 	cin.clear();
 	cin.ignore(numeric_limits <streamsize> ::max(), '\n');
 
-	Weapon newWeapon(name, damage, weight);
+	//make_unique<Weapon>(name, damage, weight);
 
-	inv.push_back(newWeapon);
+	inv.push_back(make_unique<Weapon>(name, damage, weight));
 
-	cout << newWeapon.name << " has been added to inventory" << endl;
+	cout << name << " has been added to inventory" << endl;
 
 }
 
-void Helper::RemoveItemFromIndex(vector<Equipment>& inv, int index)
+void Helper::RemoveItemFromIndex(vector <unique_ptr<Equipment>>& inv, int index)
 {
 	if (index <= 0 || index > inv.size())
 	{
@@ -78,7 +78,7 @@ void Helper::RemoveItemFromIndex(vector<Equipment>& inv, int index)
 	}
 	else
 	{ 
-		cout << "Removed " << inv[index - 1].name << " from inventory" << endl << endl;
+		cout << "Removed " << inv[index - 1]->name << " from inventory" << endl << endl;
 		inv.erase(inv.begin() + (index-1));
 	}
 }

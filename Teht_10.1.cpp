@@ -14,10 +14,9 @@ char input;
 int main()
 {
     //Create player
-    Character player("SuperSeppo", 10, 5, Weapon("Dagger", 1.5, 3), Armor("LeatherTunic", 3, 2));
+    Character player("SuperSeppo", 10, 5, make_unique<Weapon>("Dagger", 1.5, 3), make_unique<Armor>("LeatherTunic", 3, 2));
     //Create and put to inventory a starting item for easy testing
-    Weapon jee("puukko", 3, 3);
-    player.inventory.push_back(jee);
+    player.inventory.push_back(make_unique<Weapon>("puukko", 3, 3));
 
     while (isRunning)
     {
