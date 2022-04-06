@@ -8,19 +8,18 @@
 using namespace Helper;
 using namespace std;
 
-enum class itemType {ARMOR, WEAPON};
-itemType type;
-
+bool isRunning = true;
 char input;
 
 int main()
 {
+    //Create player
     Character player("SuperSeppo", 10, 5, Weapon("Dagger", 1.5, 3), Armor("LeatherTunic", 3, 2));
-
+    //Create and put to inventory a starting item for easy testing
     Weapon jee("puukko", 3, 3);
     player.inventory.push_back(jee);
 
-    while (true)
+    while (isRunning)
     {
 
         cout << "Choose action:" << endl;
@@ -28,9 +27,13 @@ int main()
         cout << "2: Remove item from index in inventory" << endl;
         cout << "3: Equip item from index" << endl;
         cout << "4: Print inventory and equipped items" << endl;
+        cout << "Q: Quit program" << endl;
+
 
         cin >> input;
-
+        cin.clear(); //Clear and ignore inputs so stuff wont get messed up, also change to upper so only need to check that
+        cin.ignore(numeric_limits <streamsize> ::max(), '\n');
+        input = toupper(input);
         switch (input)
         {
         default:
@@ -40,13 +43,20 @@ int main()
         case '1':
             cout << "Select item to add: W for weapon or A for armor: ";
             cin >> input;
-            if (input == 'w')
+            cin.clear();
+            cin.ignore(numeric_limits <streamsize> ::max(), '\n');
+            input = toupper(input);
+            if (input == 'W')
             {
                 Helper::AddWeaponToInventory(player.inventory);
             }
-            else
+            if(input == 'A' )
             {
                 Helper::AddArmorToInventory(player.inventory);
+            }
+            else
+            {
+                cout << "Invalid input!" << endl;
             }
             break;
 
@@ -75,10 +85,13 @@ int main()
             Helper::PrintInventory(player.inventory);
             break;
             
+        case 'Q':
+            isRunning = false;
+            break;
         }
 
     }
-
-    Helper::PrintInventory(player.inventory);
+    if(isRunning)
+         Helper::PrintInventory(player.inventory);
 }
 

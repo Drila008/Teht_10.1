@@ -6,7 +6,7 @@ void Helper::PrintInventory(vector<Equipment> inv)
 	float totalWeight = 0;
 
 	cout << "Items in inventory: " << endl;
-	for (Equipment item : inv)
+	for (auto item : inv)
 	{
 		cout << index << " " << item.name << endl;;
 		index++;
@@ -24,10 +24,16 @@ void Helper::AddArmorToInventory(vector<Equipment>& inv)
 
 	cout << "Give armor name: ";
 	cin >> name;
+	cin.clear();
+	cin.ignore(numeric_limits <streamsize> ::max(), '\n');
 	cout << "Give armor Armor class: ";
 	cin >> AC;
+	cin.clear();
+	cin.ignore(numeric_limits <streamsize> ::max(), '\n');
 	cout << "Give armor weight: ";
 	cin >> weight;
+	cin.clear();
+	cin.ignore(numeric_limits <streamsize> ::max(), '\n');
 
 	Armor newArmor(name, AC, weight);
 
@@ -45,10 +51,16 @@ void Helper::AddWeaponToInventory(vector<Equipment>& inv)
 
 	cout << "Give weapon name: ";
 	cin >> name;
+	cin.clear();
+	cin.ignore(numeric_limits <streamsize> ::max(), '\n');
 	cout << "Give weapon damage: ";
 	cin >> damage;
+	cin.clear();
+	cin.ignore(numeric_limits <streamsize> ::max(), '\n');
 	cout << "Give weapon weight: ";
 	cin >> weight;
+	cin.clear();
+	cin.ignore(numeric_limits <streamsize> ::max(), '\n');
 
 	Weapon newWeapon(name, damage, weight);
 
