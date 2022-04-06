@@ -1,0 +1,7 @@
+﻿  Helper.cpp
+E:\XAMK\Olio-ohjelmointi\NewProj\Teht_10.1\Helper.cpp(32,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\XAMK\Olio-ohjelmointi\NewProj\Teht_10.1\Helper.cpp(32,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\XAMK\Olio-ohjelmointi\NewProj\Teht_10.1\Helper.cpp(53,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\XAMK\Olio-ohjelmointi\NewProj\Teht_10.1\Helper.cpp(53,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\XAMK\Olio-ohjelmointi\NewProj\Teht_10.1\Helper.cpp(63,26): warning C4018: '>': signed/unsigned mismatch
+  Teht_10.1.vcxproj -> E:\XAMK\Olio-ohjelmointi\NewProj\Teht_10.1\Debug\Teht_10.1.exe
